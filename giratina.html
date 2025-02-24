@@ -22,21 +22,31 @@
         .btn-primary:hover {
             background-color: #0F0606;
         }
+        .curiosidades {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media (min-width: 768px) {
+            .curiosidades {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <h1 class="text-center mb-4">Giratina - El Guardián del Mundo Distorsión</h1>
         
-        <div class="row">
-            <div class="col-md-6">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+            <div class="col-md-5 text-center">
                 <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/487.png" class="img-fluid rounded shadow-lg" alt="Giratina">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 ms-md-4 mt-3 mt-md-0">
                 <div class="card p-3 shadow-lg">
                     <div class="card-body">
                         <h4 class="card-title">Información General</h4>
-                        <ul>
+                        <ul class="list-unstyled">
                             <li><strong>Tipo:</strong> Fantasma/Dragón</li>
                             <li><strong>Habilidad:</strong> Levitación (Forma Origen) / Presión (Forma Alterada)</li>
                             <li><strong>Altura:</strong> 4.5 m</li>
@@ -52,11 +62,11 @@
         <div class="card mt-4 p-3 shadow-lg">
             <div class="card-body">
                 <h4 class="card-title">Curiosidades</h4>
-                <ul>
-                    <li>Es el Pokémon representativo de Pokémon Platino.</li>
-                    <li>Tiene dos formas: Alterada y Origen.</li>
-                    <li>Forma parte del Trío de la Creación junto a Dialga y Palkia.</li>
-                </ul>
+                <div class="curiosidades">
+                    <div>🔹 Es el Pokémon representativo de Pokémon Platino.</div>
+                    <div>🔹 Tiene dos formas: Alterada y Origen.</div>
+                    <div>🔹 Forma parte del Trío de la Creación junto a Dialga y Palkia.</div>
+                </div>
             </div>
         </div>
         
