@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo Pokémon</title>
+    <script src="https://kit.fontawesome.com/3c7546e198.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://wallpaperaccess.com/full/32044.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .content-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+        .chatbot-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            cursor: pointer;
+        }
+        .chatbot-body {
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+        }
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .chatbot-input input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .chatbot-input button {
+            margin-left: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Museo Pokémon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link" href="trivial.html">Trivial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container content-box">
+            <h1>Bienvenido al Museo Pokémon</h1>
+            <p class="lead">Explora la historia y curiosidades del mundo Pokémon a través de nuestra colección única de arte, objetos y datos fascinantes.</p>
+        </div>
+    </header>
+    
+    <section class="container py-5">
+        <div class="content-box">
+            <h2 class="text-center">Descubre el Mundo Pokémon</h2>
+            <p>El Museo Pokémon es un espacio dedicado a la historia y cultura de los Pokémon. Aquí encontrarás información sobre los orígenes de la franquicia, su evolución a lo largo de los años y una exhibición especial de los Pokémon más emblemáticos.</p>
+            <p>Desde los primeros bocetos hasta las últimas generaciones, cada detalle del mundo Pokémon tiene un lugar en nuestra colección.</p>
+        </div>
+    </section>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div id="footer-placeholder"></div>
+        <iframe src="footer.html" style="width: 100%; border: none;"></iframe>  
+    </nav>
+
+    <button class="chatbot-toggle" onclick="toggleChatbot()">
+        <i class="fas fa-comment"></i>
+    </button>
+    
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header" onclick="toggleChatbot()">Chatbot Pokémon</div>
+        <div class="chatbot-body" id="chatbot-body"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-message" placeholder="Escribe un mensaje...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        <!-- aqui iria la apikey -->
+        function toggleChatbot() {
+        const chatbot = document.getElementById("chatbot");
+        chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+    }
+
+    async function sendMessage() {
+        const message = document.getElementById("chatbot-message").value;
+        if (message.trim() === "") return;
+
+        const chatBody = document.getElementById("chatbot-body");
+        chatBody.innerHTML += `<p><strong>Tú:</strong> ${message}</p>`;
+        document.getElementById("chatbot-message").value = "";
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Simulación de respuesta (En producción, usa un backend)
+        setTimeout(() => {
+            const fakeResponse = "¡Hola! Soy el chatbot Pokémon. Pregunta lo que quieras.";
+            chatBody.innerHTML += `<p><strong>Chatbot:</strong> ${fakeResponse}</p>`;
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1000);
+    }
+    </script>
+    
+    <script src="https://kit.fontawesome.com/3c7546e198.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
