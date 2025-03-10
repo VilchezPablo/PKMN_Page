@@ -117,6 +117,26 @@
             border-radius: 8px;
         }
 
+        .chatbot-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: transparent; /* Fondo transparente */
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        width: 60px; /* Tamaño del botón */
+        height: 60px;
+    }
+
+    .pokeball-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%; /* Para asegurar forma redonda */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombrita para que se vea flotante */
+    }
+
         footer {
             padding: 15px 0;
             background: rgba(0, 0, 0, 0.8);
@@ -172,8 +192,9 @@
 
     <!-- CHATBOT -->
     <button class="chatbot-toggle" onclick="toggleChatbot()">
-        <i class="fas fa-comment"></i>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Poké_Ball_icon.svg" alt="Pokéball" class="pokeball-icon">
     </button>
+    
 
     <div class="chatbot-container" id="chatbot">
         <div class="chatbot-header" onclick="toggleChatbot()">Entrenador Pokémon</div>
